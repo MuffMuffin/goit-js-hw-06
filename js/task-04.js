@@ -1,5 +1,5 @@
-const valueField = document.getElementById("value");
-const counterField = document.getElementById("counter");
+const valueField = document.querySelector("#value");
+const counterField = document.querySelector("#counter");
 let counterValue = 0;
 
 counterField.addEventListener("click", (event) => {

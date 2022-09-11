@@ -1,17 +1,16 @@
-const categoryArray = document.querySelectorAll("ul#categories > li.item > h2");
+const categoryArray = document.querySelectorAll(".item");
 
 console.log("Number of categories: " + categoryArray.length);
 
 categoryArray.forEach((element) => {
-  const innerElements = element.nextElementSibling.children;
-
-  let innerElementsText = Array.from(innerElements).map((subelement) => {
-    return subelement.innerText;
+  let subelements = element.querySelectorAll("li");
+  let subelementsText = Array.from(subelements).map((subelement) => {
+    return subelement.textContent;
   });
 
   console.log("\n");
-  console.log("Category: " + element.innerText);
+  console.log("Category: " + element.querySelector("h2").textContent);
   console.log(
-    `Elements: ${innerElements.length} (${innerElementsText.join(", ")})`
+    `Elements: ${subelements.length} (${subelementsText.join(", ")})`
   );
 });

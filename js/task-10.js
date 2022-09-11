@@ -37,7 +37,14 @@ function createBoxes(amount) {
     boxesNest.append(box);
     box.style.width = `${30 + 10 * i}px`;
     box.style.height = `${30 + 10 * i}px`;
-    box.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`;
+    if (i === amount - 1 && i !== 0) {
+      box.style.background = `linear-gradient(to bottom, ${color1}, ${
+        color2 + "00"
+      })`;
+    } else {
+      box.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`;
+    }
+
     if (i === 0) {
       box.style.clipPath = "polygon(50% 0, 50% 0, 100% 100%, 0% 100%)";
     } else {

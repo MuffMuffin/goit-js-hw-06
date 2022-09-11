@@ -13,6 +13,11 @@ const images = [
   },
 ];
 
+//---------------------------BEGIN GALLERY CSS STYLES---------------------------
+
+//Це стилі галереї, я не хотів модифікувати вихідний файл CSS і не хотів
+//додавати через.style бо занадто багато стилів(я так в 10 - й докидаю).
+
 document.styleSheets[0].insertRule(
   ".gallery {display: flex; margin-left: -30px; padding-left: 0px; list-style: none;}"
 );
@@ -25,12 +30,18 @@ document.styleSheets[0].insertRule(
 document.styleSheets[0].insertRule(
   ".gallery--image:hover {margin-top: 0px; width: 50vw; height: 700px;}"
 );
+//----------------------------------END STYLES----------------------------------
 
 const galleryHTML = document.querySelector(".gallery");
 
-images.forEach((image) => {
-  galleryHTML.insertAdjacentHTML(
-    "beforeend",
-    `<li class="gallery--list"><img src="${image.url}" alt="${image.alt}" class="gallery--image"></li>`
-  );
-});
+galleryHTML.insertAdjacentHTML(
+  "afterbegin",
+  images
+    .map((image) => {
+      return `<li class="gallery--list"><img src="${image.url}" alt="${image.alt}" class="gallery--image"></li>`;
+    })
+    .join("")
+);
+
+// Також не знаю чи правильно, але тут просили використати insertAdjacentHTML.
+// Тут також один інсьорт.
