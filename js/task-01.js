@@ -4,7 +4,7 @@ console.log("Number of categories: " + categoryArray.length);
 
 categoryArray.forEach((element) => {
   let subelements = element.querySelectorAll("li");
-  let subelementsText = Array.from(subelements).map((subelement) => {
+  let subelementsText = [...subelements].map((subelement) => {
     return subelement.textContent;
   });
 
