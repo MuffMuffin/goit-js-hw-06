@@ -16,6 +16,12 @@ function removeCSS(rule) {
   }
 }
 
+function destroyBoxes() {
+  removeCSS("#boxes");
+  boxesNest.innerHTML = "";
+  inputField.value = 1;
+}
+
 const inputField = document.querySelector("#controls > input");
 const create = document.querySelector("[data-create]");
 const destroy = document.querySelector("[data-destroy]");
@@ -77,12 +83,6 @@ function createBoxes(amount) {
     "#boxes {background: radial-gradient(#ccccccd0 1%, #fafafa9f 70%, #fafafa00);}",
     styles.length
   );
-}
-
-function destroyBoxes() {
-  removeCSS("#boxes");
-  boxesNest.innerHTML = "";
-  inputField.value = 1;
 }
 
 create.addEventListener("click", () => {
